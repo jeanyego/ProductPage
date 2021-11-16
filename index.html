@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="Stylesheet" href="css/style.css">
+  <link href="https://fonts.google.com/specimen/Kumbh+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css">
+  <title>E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav">
+      <!-- <img src="images/logo.svg" class="brand-logo" alt=""> -->
+        <div class="nav-items">
+            <!-- <div class="search">
+                <input type="text" class="search-box" placeholder="search brand, product">
+                <button class="search-btn">search</button>
+            </div> -->
+            <ul class="links-container">
+              <li class="link-item"><a href="#" class="link">Home</a></li>
+              <li class="link-item"><a href="#" class="link">Collections</a></li>
+              <li class="link-item"><a href="#" class="link">Men</a></li>
+              <li class="link-item"><a href="#" class="link">Women</a></li>
+              <li class="link-item"><a href="#" class="link">About</a></li>
+              <li class="link-item"><a href="#" class="link">Contact</a></li>
+          </ul>
+            <a href="#"><img src="images/icon-cart.svg" alt=""></a>
+            <a href="#"><img src="images/image-avatar.png" alt=""></a>
+        </div>
+    </div>
+    </nav>
+    <div class = "card-wrapper">
+      <div class = "card">
+        <!-- card left -->
+        <div class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+              <img src = "images/image-product-1.jpg" alt ="">
+              <img src = "images/image-product-2.jpg" alt ="">
+              <img src = "images/image-product-3.jpg" alt ="">
+              <img src = "images/image-product-4.jpg" alt ="">
+            </div>
+          </div>
+          <div class = "img-select">
+            <div class = "img-item">
+              <a href = "#" data-id = "1">
+                <img src ="images/image-product-1-thumbnail.jpg" alt="">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "2">
+                <img src ="images/image-product-2-thumbnail.jpg" alt="">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "3">
+                <img src ="images/image-product-3-thumbnail.jpg" alt="">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "4">
+                <img src ="images/image-product-4-thumbnail.jpg" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+          <h2 class = "product-title"> Sneaker Company</h2>
+         <h4 style="font-weight:bold ; font-size: 45px;">Fall Limited Edition Sneakers</h4>
+          <div class = "product-detail">
+            <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+          </div>
+          <div class = "product-price">
+            <p class = "new-price"><span>$125.00 (50%)</span></p>
+            <p class = "last-price"><span>$250.00</span></p>
+          </div>
+  
+          <div class = "purchase-info">
+            <div class="quantity buttons_added">
+              <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus"> <button type = "button" class = "btn">
+                Add to Cart <i class = "fas fa-shopping-cart"></i>
+              </button>
+             
+            </div>
+           
+          </div>
+    
+        
+        </div>
+      </div>
+    </div>
+  <!-- Collections
+  Men
+  Women
+  About
+  Contact
+
+  Sneaker Company
+
+  Fall Limited Edition Sneakers
+
+  These low-profile sneakers are your perfect casual wear companion. Featuring a 
+  durable rubber outer sole, they’ll withstand everything the weather can offer.
+
+  $125.00
+  50%
+  $250.00
+
+  0
+  Add to cart
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+</body>
+<script>
+  const imgs = document.querySelectorAll('.img-select a');
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
+});
+
+function slideImage(){
+    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+}
+
+window.addEventListener('resize', slideImage);
+</script>
+</html>
